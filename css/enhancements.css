@@ -358,3 +358,129 @@ nav a:first-child img:first-child:hover {
 a[href="/category/open-source"].border.border-white\/20 {
     animation: borderPulse 4s ease-in-out infinite;
 }
+
+/* --- Nav Links: Subtle Grow Underline --- */
+nav .hidden.xl\:flex a[href] {
+    position: relative;
+    overflow: hidden;
+}
+
+nav .hidden.xl\:flex a[href]::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #FF4D63;
+    border-radius: 1px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav .hidden.xl\:flex a[href]:hover::after {
+    width: 60%;
+    left: 20%;
+}
+
+/* --- FAQ Items: Slide In From Left --- */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#faq-items > * {
+    animation: slideInLeft 0.4s ease forwards;
+}
+
+#faq-items > *:nth-child(1) { animation-delay: 0.05s; }
+#faq-items > *:nth-child(2) { animation-delay: 0.1s; }
+#faq-items > *:nth-child(3) { animation-delay: 0.15s; }
+#faq-items > *:nth-child(4) { animation-delay: 0.2s; }
+#faq-items > *:nth-child(5) { animation-delay: 0.25s; }
+#faq-items > *:nth-child(n+6) { animation-delay: 0.3s; }
+
+/* --- Star Ratings: Warm Gold Tint --- */
+.fa-star.text-\[\#FF3A52\] {
+    color: #FF6B5A !important;
+    filter: drop-shadow(0 2px 6px rgba(255, 107, 90, 0.4));
+}
+
+/* --- Review Cards: Subtle Tilt on Hover --- */
+#discord-reviews > * {
+    transition: transform 0.3s ease;
+}
+
+#discord-reviews > *:hover {
+    transform: rotate(-1deg) translateY(-2px);
+}
+
+/* --- Discord CTA Card: Perspective Tilt --- */
+section:has(a[href="https://discord.gg/0resmon"]) .container.max-w-7xl {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+section:has(a[href="https://discord.gg/0resmon"]) .container.max-w-7xl:hover {
+    transform: perspective(800px) rotateY(-1.5deg);
+    box-shadow: 8px 8px 40px rgba(4, 116, 243, 0.1);
+}
+
+/* --- Hero Floating Logos: Enhanced Glow --- */
+.float-slow, .float-medium, .float-fast {
+    filter: drop-shadow(0 0 20px rgba(255, 77, 99, 0.15));
+}
+
+.float-slow:hover, .float-medium:hover, .float-fast:hover {
+    filter: drop-shadow(0 0 30px rgba(255, 77, 99, 0.3));
+}
+
+/* --- Discount Banner: Warmer Red Gradient --- */
+section:first-child {
+    background: radial-gradient(50% 366.3% at 50% 50%, #C4151F 0%, #520202 100%) !important;
+}
+
+/* --- Payment Cards: Subtle Entrance --- */
+@keyframes fadeScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.payment-item {
+    animation: fadeScale 0.5s ease forwards;
+}
+
+/* --- YouTube Video Thumbnails: Red Border Accent on Hover --- */
+#youtube-videos > *,
+#youtube-videos-main > * {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#youtube-videos > *:hover,
+#youtube-videos-main > *:hover {
+    box-shadow: 0 0 0 2px rgba(255, 77, 99, 0.3),
+                0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* --- "Add to Basket" Button: Warm White Gradient --- */
+.product-actions .add {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%) !important;
+}
+
+.product-actions .add:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%) !important;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2),
+                0 0 0 1px rgba(255, 77, 99, 0.15);
+}
