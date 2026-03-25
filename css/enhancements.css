@@ -212,3 +212,149 @@ section:has(a[href="https://discord.gg/0resmon"]) .container {
 section:has(a[href="https://discord.gg/0resmon"]) .container:hover {
     box-shadow: 0 0 60px rgba(4, 116, 243, 0.08);
 }
+
+/* =============================================
+   CUSTOM DIFFERENTIATORS — Our Design Identity
+   ============================================= */
+
+/* --- Shifted Accent: Slightly Warmer Coral --- */
+/* Using #FF4D63 instead of the original #FF3A52 in key spots */
+
+/* --- Hero Text Entrance Animation --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp-delay {
+    0%, 15% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero section entrance */
+section:first-of-type h1 {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+section:first-of-type h1 + p {
+    animation: fadeInUp-delay 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+section:first-of-type .flex.items-center.gap-x-3 {
+    animation: fadeInUp-delay 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- Discount Code Pulse Glow --- */
+@keyframes codeGlow {
+    0%, 100% { box-shadow: 0 0 8px rgba(255, 77, 99, 0.2); }
+    50% { box-shadow: 0 0 16px rgba(255, 77, 99, 0.45); }
+}
+
+#discount-code {
+    animation: codeGlow 2.5s ease-in-out infinite;
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
+/* --- Section Headings: Warm Coral Tint --- */
+h1 span[class*="text-[#FF3A52]"] {
+    color: #FF4D63 !important;
+    filter: drop-shadow(0 0px 14px rgba(255, 77, 99, 0.45));
+}
+
+/* --- Why Choose Us: Staggered Card Entrance --- */
+@keyframes slideInCards {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.gsap-reveal .grid.grid-cols-1.lg\:grid-cols-2 > * {
+    opacity: 0;
+    animation: slideInCards 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.gsap-reveal .grid.grid-cols-1.lg\:grid-cols-2 > *:nth-child(1) { animation-delay: 0.1s; }
+.gsap-reveal .grid.grid-cols-1.lg\:grid-cols-2 > *:nth-child(2) { animation-delay: 0.2s; }
+.gsap-reveal .grid.grid-cols-1.lg\:grid-cols-2 > *:nth-child(3) { animation-delay: 0.3s; }
+.gsap-reveal .grid.grid-cols-1.lg\:grid-cols-2 > *:nth-child(4) { animation-delay: 0.4s; }
+
+/* --- Reviews Badge: Gradient Border Glow --- */
+@keyframes borderGlow {
+    0%, 100% { border-color: rgba(255, 77, 99, 0.1); }
+    50% { border-color: rgba(255, 77, 99, 0.3); }
+}
+
+.review-marquee + div,
+div:has(> p.font-bold.text-white.text-xl) {
+    animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* --- FAQ Search: Blinking Cursor Indicator --- */
+#faq-search::placeholder {
+    transition: opacity 0.3s ease;
+}
+
+#faq-search:focus::placeholder {
+    opacity: 0.3;
+}
+
+/* --- Stats Numbers: Glow Pulse When Visible --- */
+@keyframes numberGlow {
+    0%, 100% { filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.15)); }
+    50% { filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.35)); }
+}
+
+@keyframes numberGlowRed {
+    0%, 100% { filter: drop-shadow(0 0 12px rgba(255, 77, 99, 0.15)); }
+    50% { filter: drop-shadow(0 0 24px rgba(255, 77, 99, 0.4)); }
+}
+
+#sales, #active-servers {
+    animation: numberGlow 3s ease-in-out infinite;
+}
+
+#active-players {
+    animation: numberGlowRed 3s ease-in-out infinite;
+}
+
+/* --- Logo Hover: Subtle Brightness Bump --- */
+nav a:first-child img:first-child {
+    transition: filter 0.3s ease;
+}
+
+nav a:first-child img:first-child:hover {
+    filter: brightness(1.15);
+}
+
+/* --- Mobile Menu: Smoother Slide --- */
+#mobile-menu-panel {
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1) !important;
+}
+
+/* --- View All Packages Button: Border Pulse --- */
+@keyframes borderPulse {
+    0%, 100% { border-color: rgba(255, 255, 255, 0.2); }
+    50% { border-color: rgba(255, 77, 99, 0.4); }
+}
+
+a[href="/category/open-source"].border.border-white\/20 {
+    animation: borderPulse 4s ease-in-out infinite;
+}
