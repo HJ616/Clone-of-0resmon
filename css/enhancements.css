@@ -484,3 +484,121 @@ section:first-child {
     box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2),
                 0 0 0 1px rgba(255, 77, 99, 0.15);
 }
+
+/* =============================================
+   BOLD DIFFERENTIATORS — Stronger Visual Impact
+   ============================================= */
+
+/* --- Hero '0RESMON': Animated Gradient Shimmer --- */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+section:first-of-type h1 span[style*="background: linear-gradient"] {
+    background: linear-gradient(270deg, #FF3A52, #FF8A65, #FF4D63, #FF3A52) !important;
+    background-size: 300% 300% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    animation: gradientShift 4s ease infinite !important;
+}
+
+/* --- Product Card Image: Zoom + Slight Rotate on Hover --- */
+.package-card .relative img {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.package-card:hover .relative img {
+    transform: scale(1.08) rotate(1deg) !important;
+}
+
+/* --- Glowing Section Divider Lines --- */
+section + section::before {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 2px;
+    margin: 0 auto 0;
+    background: linear-gradient(90deg, transparent, #FF4D63, transparent);
+    opacity: 0.4;
+    border-radius: 1px;
+}
+
+/* --- Why Choose Us: Icon Box Spin on Hover --- */
+.grid.grid-cols-1.lg\:grid-cols-2 .w-12.h-12 {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.3s ease;
+}
+
+.grid.grid-cols-1.lg\:grid-cols-2 > *:hover .w-12.h-12 {
+    transform: rotate(12deg) scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 77, 99, 0.2);
+}
+
+/* --- Product Card: Red Top Border Accent on Hover --- */
+.package-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 10%, #FF4D63 50%, transparent 90%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.package-card {
+    position: relative;
+}
+
+.package-card:hover::after {
+    opacity: 1;
+}
+
+/* --- Countdown Timer: Number Pop Animation --- */
+@keyframes countPop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+#countdown-timer > div {
+    transition: background 0.3s ease;
+}
+
+#countdown-timer > div:hover {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+#countdown-timer p.text-lg,
+#countdown-timer p.text-2xl {
+    animation: countPop 1s ease-in-out infinite;
+}
+
+/* --- "Join Discord" Hero Button: Gradient Background --- */
+a[href*="discord"].bg-\[\#FF3A52\] {
+    background: linear-gradient(135deg, #FF3A52 0%, #FF6B5A 100%) !important;
+    border: none;
+}
+
+a[href*="discord"].bg-\[\#FF3A52\]:hover {
+    background: linear-gradient(135deg, #FF4D63 0%, #FF7A6A 100%) !important;
+}
+
+/* --- Section Titles: Slight Letter Spacing --- */
+h1.font-bold.text-3xl {
+    letter-spacing: -0.02em;
+}
+
+/* --- Body: Subtle Noise Texture Overlay --- */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.015;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
