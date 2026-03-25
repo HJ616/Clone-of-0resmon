@@ -1,0 +1,214 @@
+/* =============================================
+   ENHANCEMENTS.CSS — Design Improvements
+   Thoughtful upgrades over the reference design
+   ============================================= */
+
+/* --- Global Smoothness --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Brand-Colored Text Selection --- */
+::selection {
+    background: rgba(255, 58, 82, 0.3);
+    color: #fff;
+}
+
+::-moz-selection {
+    background: rgba(255, 58, 82, 0.3);
+    color: #fff;
+}
+
+/* --- Custom Scrollbar (Dark Theme) --- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #1a1a1a;
+}
+
+/* --- Enhanced Focus States (Accessibility) --- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #FF3A52;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* --- Product Card Hover Enhancements --- */
+.package-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s ease !important;
+}
+
+.package-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(255, 58, 82, 0.08),
+                0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Button Glow Effects --- */
+.product-actions .add {
+    transition: all 0.25s ease !important;
+    position: relative;
+}
+
+.product-actions .add:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Hero CTA button enhancements */
+a[href="/category/open-source"].bg-white,
+a[href*="discord"].bg-\[\#FF3A52\] {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a[href="/category/open-source"].bg-white:hover {
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+a[href*="discord"].bg-\[\#FF3A52\]:hover {
+    box-shadow: 0 4px 20px rgba(255, 58, 82, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- Loading Screen Auto-Fade --- */
+#page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#page-loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* --- Why Choose Us Card Hover --- */
+section .rounded-2xl.border-2.border-white\/5 {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+section .rounded-2xl.border-2.border-white\/5:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* --- FAQ Section Polish --- */
+#faq-search {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+#faq-search:focus {
+    box-shadow: 0 0 0 3px rgba(255, 58, 82, 0.15);
+    border-color: rgba(255, 58, 82, 0.3) !important;
+}
+
+/* --- Stats Counter Glow on Scroll --- */
+#sales,
+#active-players,
+#active-servers {
+    transition: text-shadow 0.6s ease;
+}
+
+/* --- Discount Banner Shimmer --- */
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+.discount-shimmer {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* --- Navbar Glass Effect on Scroll --- */
+#navbar.scrolled {
+    backdrop-filter: blur(16px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* --- YouTube Video Card Hover --- */
+#youtube-videos a,
+#youtube-videos-main a {
+    transition: transform 0.25s ease;
+}
+
+#youtube-videos a:hover,
+#youtube-videos-main a:hover {
+    transform: translateY(-3px);
+}
+
+/* --- Recent Payments Hover --- */
+.payment-item {
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.payment-item:hover {
+    transform: scale(1.02);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Footer Link Hover Underline --- */
+footer a {
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+footer ul a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #FF3A52;
+    transition: width 0.25s ease;
+}
+
+footer ul a:hover::after {
+    width: 100%;
+}
+
+/* --- Improved Currency Dropdown --- */
+.grid.grid-cols-3 a {
+    transition: all 0.15s ease !important;
+}
+
+.grid.grid-cols-3 a:hover {
+    transform: scale(1.05);
+}
+
+/* --- Discord CTA Section Enhancement --- */
+section:has(a[href="https://discord.gg/0resmon"]) .container {
+    transition: box-shadow 0.3s ease;
+}
+
+section:has(a[href="https://discord.gg/0resmon"]) .container:hover {
+    box-shadow: 0 0 60px rgba(4, 116, 243, 0.08);
+}
