@@ -6,7 +6,7 @@ A high-fidelity, responsive homepage clone of [0resmon.tebex.io](https://0resmon
 
 ## 🔗 Live Demo
 
-**[View Live →](https://YOUR-DEPLOYMENT-URL.vercel.app)**
+**[View Live →](https://hj616.github.io/Clone-of-0resmon/)**
 
 ## 📸 Preview
 
